@@ -6,6 +6,7 @@ import Netflix from './pages/Netflix';
 import Player from './pages/Player';
 import SignUpPage from './pages/SignUpPage';
 import TvShow from './pages/TvShow';
+import BackgroundImage from './components/BackgroundImage';
 
 
 function App() {
