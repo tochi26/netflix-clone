@@ -5,3 +5,5 @@ export const TvShow = () => {
         <div>TvShow</div>
     )
 }
+
+export default TvShow
