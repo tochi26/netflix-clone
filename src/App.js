@@ -7,6 +7,7 @@ import Player from './pages/Player';
 import SignUpPage from './pages/SignUpPage';
 import TvShow from './pages/TvShow';
 import BackgroundImage from './components/BackgroundImage';
+import Header from './components/Header';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route exact path='/' element={<Netflix />} />
         <Route exact path='/movie' element={<MoviePage />} />
       </Routes>
+      <Header />
     </BrowserRouter>
   );
 }
