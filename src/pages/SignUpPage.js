@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+
+import { firebaseAuth } from '../utils/firebase-config';
 import Header from '../components/Header';
 import BackgroundImage from '../components/BackgroundImage';
+
 
 const SignUpPage = () => {
 
@@ -73,7 +77,7 @@ const Container = styled.div`
             color: white;
         }
         h1{
-            padding: 0 25rem;
+            padding: 0 20rem;
         }
         h4{
             margin-top: -1.5rem;
@@ -85,7 +89,8 @@ const Container = styled.div`
     .form {
         display: grid;
         width: 40%;
-        margin-right: 40%;
+        margin-right: 35%;
+        margin-left: auto;
         grid-template-columns: ${({ showPassword }) => showPassword ? '1fr 1fr' : '2fr 1fr'};
         input{
             color:black;
