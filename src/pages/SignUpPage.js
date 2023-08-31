@@ -6,7 +6,7 @@ import { firebaseAuth } from '../utils/firebase-config';
 import Header from '../components/Header';
 import BackgroundImage from '../components/BackgroundImage';
 import { useNavigate } from 'react-router-dom';
-import { current } from 'immer';
+
 
 
 const SignUpPage = () => {
