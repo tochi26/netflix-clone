@@ -5,6 +5,7 @@ import { FaPlay } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
 import TopNav from '../components/TopNav'
+import Card from '../components/Card'
 
 const Netflix = () => {
 
@@ -38,6 +39,7 @@ const Netflix = () => {
                     </div>
                 </div>
             </div>
+            <Card />
         </HeroContainer>
 
     )
