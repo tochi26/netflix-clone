@@ -24,7 +24,7 @@ const TopNav = (isScrolled) => {
 
     return (
         <NavContainer>
-            <nav className={`${isScrolled ? 'scrolled' : 'notScrolled'}`}>
+            <nav className={`top-nav ${isScrolled ? 'scrolled' : ''}`}>
                 <div className="leftSide">
                     <div className="logo">
                         <img src='https://res.cloudinary.com/ehizeex-shop/image/upload/v1668265433/NetflixApp/2560px-Netflix_2015_logo.svg_rbicwl_knwp6f.png'
@@ -56,13 +56,33 @@ const TopNav = (isScrolled) => {
 }
 
 const NavContainer = styled.div`
+
+
+.top-nav {
+        display: flex;
+        position: sticky;
+        top: 0;
+        height: 6rem;
+        width: 100%;
+        justify-content: space-between;
+        z-index: 2;
+        padding: 0.4rem;
+        align-items: center;
+        transition: 0.3s ease-in-out;
+}
+
   .notScrolled {
-    display: flex;
+    opacity: 0;
 }
 .scrolled {
-    display: flex;
     background-color: black;
 }
+
+.top-nav,
+    .notScrolled {
+        transition: opacity 0.3s ease-in-out;
+    }
+    
 nav{
     position: sticky;
     top: 0;
