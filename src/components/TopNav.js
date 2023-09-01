@@ -98,6 +98,7 @@ nav{
         display: flex;
         align-items: center;
         gap: 2rem;
+        margin-left: 5rem;
 
     .logo{
         display: flex;
@@ -126,6 +127,7 @@ nav{
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-right:1rem;
     button{
         background-color: red;
         border: none; 
