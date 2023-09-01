@@ -83,7 +83,7 @@ position: relative;
             justify-content: center;
             gap: 2rem;
             background-color: rgba(0, 0, 0, 0.83);
-            height: 50vh;
+            height: 65vh;
             padding: 3.5rem;
             color: white;
             border-radius: 0.4rem;
