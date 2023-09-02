@@ -73,7 +73,7 @@ max-width: 230px;
 width: 230px;
 height: 100%;
 position: relative;
-background-color: red;
+
 img{
     border-radius: 0.2rem;
     width: 100%;
