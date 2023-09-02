@@ -13,34 +13,39 @@ const initialState = {
 export const getGenres = createAsyncThunk("netflix/genres", async (done) => {
     const { data: { genres },
     } = await axios.get(
-        `${TMDB_BASE_URL}/genres/movie/list?api_key=${MY_API_KEY}`
+        `${TMDB_BASE_URL}/genre/movie/list?api_key=${MY_API_KEY}`
     )
     //  console.log(genres)
     return genres
 })
 
-const arrayOfMovieData = (array, movieArray, generes) => {
+const arrayOfMovieData = (array, movieArray, genres) => {
     array.forEach((movie) => {
-        const movieGenres = []
-        movie.genre_ids.forEach((genre) => {
-            const name = generes.find(({ id }) => id === genre)
-            if (name) movieGenres.push(name.name)
-        })
-        if (movie.backdrop_path)
+        const movieGenres = [];
+        if (movie.genre_ids && Array.isArray(genres)) {
+            movie.genre_ids.forEach((genre) => {
+                const foundGenre = genres.find(({ id }) => id === genre);
+                if (foundGenre) {
+                    movieGenres.push(foundGenre.name);
+                }
+            });
+        }
+        if (movie.backdrop_path) {
             movieArray.push({
                 id: movie.id,
                 name: movie?.original_name ? movie.original_name : movie.original_title,
                 image: movie.backdrop_path,
-                genres: movie.Genres.slice(0, 3)
+                genres: movieGenres.slice(0, 3),
+            });
+        }
+    });
+};
 
-            })
-    })
-}
 
 const getMovieData = async (api, genres, paging = false) => {
     const moviesArray = []
     for (let i = 1; moviesArray.length < 80; i++) {
-        const { data: { results }, } = await axios.get(`${api}${paging ? `&page={i}` : ""}`)
+        const { data: { results }, } = await axios.get(`${api}${paging ? `&page=${i}` : ""}`)
         arrayOfMovieData(results, moviesArray, genres)
     }
     return moviesArray

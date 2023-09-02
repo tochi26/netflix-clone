@@ -99,7 +99,7 @@ const Container = styled.div`
             flex-direction: column;
             align-items: center;
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin-top: -10rem;
             color: white;
         }
@@ -107,15 +107,16 @@ const Container = styled.div`
             padding: 0 20rem;
         }
         h4{
-            margin-top: -1.5rem;
+            margin-top: 0rem;
         }
         h6{
-            margin-top: -1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
         }
     }
     .form {
         display: grid;
-        width: 40%;
+        width: 45%;
         margin-right: 35%;
         margin-left: auto;
         grid-template-columns: ${({ showPassword }) => showPassword ? '1fr 1fr' : '2fr 1fr'};
