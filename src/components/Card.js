@@ -8,7 +8,7 @@ import { BiChevronDown } from "react-icons/bi";
 import { BsCheck } from "react-icons/bs";
 
 
-const Card = ({ movieData }) => {
+export default React.memo(function Card({ movieData }) {
 
     const [onHovered, setonHovered] = useState(false)
     const navigate = useNavigate()
@@ -65,7 +65,7 @@ const Card = ({ movieData }) => {
             }
         </CardContainer>
     )
-}
+});
 
 const CardContainer = styled.div`
 margin-top: 1rem;
@@ -159,4 +159,3 @@ img{
 
 `
 
-export default Card
