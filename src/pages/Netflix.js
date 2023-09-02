@@ -15,6 +15,7 @@ const Netflix = () => {
 
     const navigate = useNavigate()
 
+    const movies = useSelector((state) => state.netflix.movies)
     const generesLoaded = useSelector((state) => state.netflix.generesLoaded)
 
     const dispatch = useDispatch()
@@ -34,7 +35,7 @@ const Netflix = () => {
 
         return () => (window.onscroll = null)
     }
-    console.log(isScrolled)
+    console.log(movies)
     return (
         <HeroContainer>
             <div className='hero'>
