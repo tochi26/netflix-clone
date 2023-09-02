@@ -8,7 +8,7 @@ import { BiChevronDown } from "react-icons/bi";
 import { BsCheck } from "react-icons/bs";
 
 
-const Card = () => {
+const Card = ({ movieData }) => {
 
     const [onHovered, setonHovered] = useState(false)
     const navigate = useNavigate()
@@ -18,14 +18,15 @@ const Card = () => {
             onMouseEnter={() => setonHovered(true)}
             onMouseLeave={() => setonHovered(false)}
         >
-            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaCor4AIV__zuNlgGZTSr424NdUudWBQKBrA&usqp=CAU'
+            <img
+                src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
                 alt='movie poster'
                 onClick={() => navigate('/player')}
             />
             {onHovered && (
                 <div className='hover'>
                     <div className='image-video-wrapper'>
-                        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaCor4AIV__zuNlgGZTSr424NdUudWBQKBrA&usqp=CAU'
+                        <img src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
                             alt='movie poster'
                             onClick={() => navigate('/player')}
                         />
@@ -34,7 +35,7 @@ const Card = () => {
                         />
                     </div>
                     <div className='info-container'>
-                        <h3 className='movieName' onClick={() => navigate('/player')}>Red Notice</h3>
+                        <h3 className='movieName' onClick={() => navigate('/player')}>{movieData.name}</h3>
                         <div className='icons'>
                             <div className='controls'>
                                 <IoPlayCircleSharp
@@ -52,10 +53,9 @@ const Card = () => {
                         </div>
                         <div className='genres'>
                             <ul>
-                                <li>Action</li>
-                                <li>Action</li>
-                                <li>Action</li>
-                                <li>Action</li>
+                                {movieData.genres.map((genre) => {
+                                    <li>{genre}</li>
+                                })}
                             </ul>
                         </div>
                     </div>

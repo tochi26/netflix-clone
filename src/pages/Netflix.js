@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import TopNav from '../components/TopNav'
 import Card from '../components/Card'
 import { fetchMovies, getGenres } from '../store'
+import SliderContainer from '../components/SliderContainer'
 
 const Netflix = () => {
 
@@ -35,7 +36,7 @@ const Netflix = () => {
 
         return () => (window.onscroll = null)
     }
-    console.log(movies)
+    // console.log(movies)
     return (
         <HeroContainer>
             <div className='hero'>
@@ -56,7 +57,7 @@ const Netflix = () => {
                     </div>
                 </div>
             </div>
-            <Card />
+            <SliderContainer movies={movies} />
         </HeroContainer>
 
     )
