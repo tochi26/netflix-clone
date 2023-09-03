@@ -9,7 +9,8 @@ This project combines modern web development tools and technologies to create a 
 ![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/s63diray3qo5mlwms5jn.png)
 
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/)
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ann0v2kco3vmytstfiuq.png)
+
 
 ## Developed by Tochukwu Nzewi
 
