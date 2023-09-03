@@ -6,11 +6,10 @@ This project combines modern web development tools and technologies to create a 
 
 ## Screenshots
 
-![Screenshot 1](![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/s63diray3qo5mlwms5jn.png))
-*Description of Screenshot 1*
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/s63diray3qo5mlwms5jn.png)
 
-![Screenshot 2](![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ann0v2kco3vmytstfiuq.png))
-*Description of Screenshot 2*
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/)
 
 ## Developed by Tochukwu Nzewi
 
