@@ -7,63 +7,60 @@ import Header from '../components/Header';
 import BackgroundImage from '../components/BackgroundImage';
 import { useNavigate } from 'react-router-dom';
 
-
-
 const SignUpPage = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const [formValues, setFormValues] = useState({ email: "", password: "" });
+    const [formValues, setFormValues] = useState({ email: '', password: '' });
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleSignin = async () => {
         try {
-            const { email, password } = formValues
-            await createUserWithEmailAndPassword(firebaseAuth, email, password)
+            const { email, password } = formValues;
+            await createUserWithEmailAndPassword(firebaseAuth, email, password);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
+    };
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
-        if (currentUser) navigate('/')
-    })
+        if (currentUser) navigate('/');
+    });
 
     return (
-        <Container>
+        <Container showPassword={showPassword}>
             <BackgroundImage />
-            <div className='content'>
+            <div className="content">
                 <Header login />
-                <div className='body'>
-                    <div className='text'>
-                        <h1>Unlimited movies, Tv shows and more </h1>
-                        <h4>watch anywhere, Cancel Anytime</h4>
+                <div className="body">
+                    <div className="text">
+                        <h1>Unlimited movies, TV shows & more</h1>
+                        <h4>Watch anywhere, Cancel Anytime</h4>
                         <h6>Ready to watch? Enter your email to create or restart membership</h6>
                     </div>
-                    <div className='form'>
-                        {
-                            showPassword ? (
-                                <input type='password' placeholder='password' name='password'
-                                    value={formValues.password}
-                                    onChange={(e) => setFormValues({
-                                        ...formValues, [e.target.name]: e.target.value
-                                    })}
-                                />
-                            ) : <input type='email' placeholder='email address' name='email'
-                                value={formValues.email}
-                                onChange={(e) => setFormValues({
-                                    ...formValues, [e.target.name]: e.target.value
-                                })}
+                    <div className="form">
+                        {showPassword ? (
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                name="password"
+                                value={formValues.password}
+                                onChange={(e) => setFormValues({ ...formValues, [e.target.name]: e.target.value })}
                             />
-                        }
+                        ) : (
+                            <input
+                                type="email"
+                                placeholder="Email address"
+                                name="email"
+                                value={formValues.email}
+                                onChange={(e) => setFormValues({ ...formValues, [e.target.name]: e.target.value })}
+                            />
+                        )}
 
-                        {
-                            !showPassword ? (
-                                <button onClick={() => setShowPassword(true)}>Get Started</button>
-                            ) : <button onClick={handleSignin}>Sign Up</button>
-                        }
-
-
-
+                        {!showPassword ? (
+                            <button onClick={() => setShowPassword(true)}>Get Started</button>
+                        ) : (
+                            <button onClick={handleSignin}>Sign Up</button>
+                        )}
                     </div>
                 </div>
             </div>
@@ -83,7 +80,6 @@ const Container = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        
         /* Updated styles for .body */
         .body {
             display: flex;
@@ -92,51 +88,50 @@ const Container = styled.div`
             align-items: center;
             height: 100%;
         }
-        
         /* Updated styles for .text */
         .text {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            font-size: 1.4rem;
+            font-size: 1rem;
             margin-top: -10rem;
             color: white;
-        }
-        h1{
-            padding: 0 20rem;
-        }
-        h4{
-            margin-top: 0rem;
-        }
-        h6{
-            margin-top: 1rem;
-            margin-bottom: 1rem;
+            h1 {
+                padding: 0 20rem;
+            }
+            h4 {
+                margin-top: 0rem;
+            }
+            h6 {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
         }
     }
     .form {
         display: grid;
-        width: 45%;
-        margin-right: 35%;
-        margin-left: auto;
-        grid-template-columns: ${({ showPassword }) => showPassword ? '1fr 1fr' : '2fr 1fr'};
-        input{
-            color:black;
+        width: 40%;
+        margin-right: 5%;
+        
+        grid-template-columns: ${({ showPassword }) => (showPassword ? '1fr 1fr' : '2fr 1fr')};
+        input {
+            color: black;
             padding: 0.8rem;
             font-size: 1.2rem;
             width: 30rem;
-            &:focus{
+            &:focus {
                 outline: none;
             }
         }
-        button{
-            padding: 0.5rem 1rem;
+        button {
+            padding: 0.5rem 2rem;
             background-color: red;
             border: none;
             cursor: pointer;
             color: white;
             font-size: 1.05rem;
-            width: 10rem;
+            width: 7rem;
         }
     }
 `;
